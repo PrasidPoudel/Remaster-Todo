@@ -1,0 +1,81 @@
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.options div {
+    display: flex;
+}
+.options div div {
+    align-self: center;
+    font-family: "Roboto",sans-serif;
+    font-size: 1.125rem;
+}
+.cancel-button {
+    background-color: rgb(206, 37, 37);
+    font-family: "Bebas Neue", serif;
+    font-size: 1.125rem;
+    height: fit-content;
+    width: fit-content;
+}
+.add-button {
+    background-color: rgb(104, 243, 104);
+     font-family: "Bebas Neue", serif;
+    font-size: 1.2rem;
+    height: fit-content;
+    width: fit-content;
+}
+.add-projects div img {
+    height: 25px;
+    width: 35px;
+}
+.add-projects>button {
+    background-color: transparent;
+    display: flex;
+}
+img {
+    height: 27px;
+    width: 27px;
+}
+.features {
+    margin-left: 18px;
+}
+.add-projects div>*:hover {
+    background-color: lightblue;
+}
+.add-projects>button>div{
+    align-self: center;
+}
+.todo-container {
+    display: flex;
+}
+button:active {
+    background-color: black;
+    color: white;
+}
+.taskAdd {
+    text-align: center;
+    height: 60px;
+    font-size: 2 rem;
+    font-size: 3rem;
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    width: 60px;
+    border-radius: 100%;
+    border: 1px solid black;
+}
+.add-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.add-projects>button{
+    width: fit-content;
+}
+.add-projects button:hover{
+    cursor: pointer;
+}
+.active{
+    border: 1px solid blue;
+}

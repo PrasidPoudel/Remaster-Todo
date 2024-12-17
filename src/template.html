@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="appname">
+        <div>ToDo</div>
+    </div>
+    <div class="todo-container">
+        <div class="features">
+            <div class="options">
+                <div class="home">
+                    <img src="img/inbox.svg" height="25px" width="30px">
+                    <div class="project-item inbox active">Inbox</div>
+                </div>
+            </div>
+            <div class="projects-form" style="display: none;">
+                <form>
+                    <label for="project"></label>
+                    <input type="text" id="project-label" name="project" required>
+                    <br>
+                    <button class="cancel-button">Cancel</button>
+                    <button type="submit" class="add-button">Add</button>
+                </form>
+            </div>
+            <div class="projects-div">
+                <div class="projects">Projects+</div>
+                <div class="add-projects" id="projects-add"></div>
+            </div>
+        </div>
+        <div class="sidebar" id="side">
+            <div class="name">Inbox</div>
+            <div class="add-todo"></div>
+            <dialog class="dialog">
+                <form class="form-todo">
+                    <label for="title">TaskName:</label>
+                    <input type="text" name="title" id="title" required minlength="3">
+                    <br>
+                    <label for="description"></label>
+                    <input type="text" name="description" id="description">
+                    <br>
+                    <label for="duedate">DueDate</label>
+                    <input type="date" name="duedate" id="duedate">
+                    <br>
+                    <label for="Priority">Priority:</label>
+                    <select id="Priority" name="Priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                    <br>
+                    <button  class="cancel-todo">Cancel</button>
+                    <button type="submit" id="submit">Add+</button>
+                </dialog>
+            </div>
+            <div class="projects-display">
+                <div class="taskAdd">+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
