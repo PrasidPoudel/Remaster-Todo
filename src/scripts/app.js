@@ -1,6 +1,9 @@
 //We will create functions for app logic here
 //Now let's create a function that gives the uuid of project when the user clicked projects
 import { MAINARRAY } from ".";
+import Delete from "../img/delete.svg";
+import { DOMProject } from "./domcreation";
+
 const App = (function () {
   function uuidProject() {
     const projectsChild = document.querySelectorAll(".add-projects>div");
@@ -13,7 +16,7 @@ const App = (function () {
   }
   //This function is to display todos on click on project
   function createTodos(uuid) {
-    let arr=[]
+    let arr = [];
     for (let project of MAINARRAY) {
       if (project.id === uuid) {
         arr = project.tasksarray;
@@ -22,42 +25,54 @@ const App = (function () {
     }
 
     //NOw let's display the todo to the user
-    DisplayTodo(arr)
+    DisplayTodo(arr);
   }
 
   //Display Todo function which take an array and create todos
   function DisplayTodo(arr) {
     const todoContainer = document.querySelector(".add-todo");
     for (let items of arr) {
-      const parent = document.createElement("div");
-      parent.classList.add("parent-todo");
-      let checkbox = document.createElement("input");
-      checkbox.setAttribute("type", "checkbox");
-      const title = document.createElement("div");
-      title.textContent = items.title;
-      const duedate = document.createElement("div");
-      duedate.textContent = items.duedate;
-      parent.appendChild(checkbox);
-      parent.appendChild(title);
-      parent.appendChild(duedate);
-      todoContainer.appendChild(parent);
+      DOMProject.createTodoForm(items);
     }
-    
   }
   function removeProjects() {
-    const imageAll=document.querySelectorAll('img.delete-project')
-    imageAll.forEach((img)=>{
-      img.addEventListener('click',()=>{
-        let uuid = img.getAttribute('uuid');  // Get the 'uuid' attribute of the img element
-        const projectitem = document.querySelector(`.project-item[uuid="${uuid}"]`);
-        projectitem.remove()
-        let id=MAINARRAY.findIndex((project)=>project.id===uuid)
-        MAINARRAY.splice(id,1)
-        if(projectitem.hasAttribute('active')) document.querySelector('.add-todo').innerHTML=''
-      })
-    })
+    const imageAll = document.querySelectorAll("img.delete-project");
+    imageAll.forEach((img) => {
+      img.addEventListener("click", () => {
+        let uuid = img.getAttribute("uuid"); // Get the 'uuid' attribute of the img element
+        const projectitem = document.querySelector(
+          `.project-item[uuid="${uuid}"]`
+        );
+        if (projectitem.hasAttribute(".active")) {
+          document.querySelector(".taskAdd").style.display = "none";
+          document.querySelector(".add-todo").innerHTML = "";
+          document.querySelector(".name").textContent = "";
+        }
+        projectitem.remove();
+        let id = MAINARRAY.findIndex((project) => project.id === uuid);
+        MAINARRAY.splice(id, 1);
+      });
+    });
   }
-  return { uuidProject,createTodos,DisplayTodo,removeProjects};
+
+  function RemoveTodos() {
+    const imageAll = document.querySelectorAll("img.delete-todo");
+    imageAll.forEach((img) => {
+      img.addEventListener("click", () => {
+        let id = img.getAttribute("todoid");
+        let todo = document.querySelector(`.parent-todo[todoid='${id}']`);
+        for (let projects of MAINARRAY) {
+          for (let items of projects.tasksarray) {
+            if (items.id === id) {
+              projects.tasksarray.splice(items,1);
+              todo.remove();
+            }
+          }
+        }
+      });
+    });
+  }
+  return { uuidProject, createTodos, DisplayTodo, removeProjects, RemoveTodos };
 })();
 
 export { App };
