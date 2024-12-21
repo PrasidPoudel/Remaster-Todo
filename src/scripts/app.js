@@ -64,7 +64,7 @@ const App = (function () {
         for (let projects of MAINARRAY) {
           for (let items of projects.tasksarray) {
             if (items.id === id) {
-              projects.tasksarray.splice(items,1);
+              projects.tasksarray.splice(items, 1);
               todo.remove();
             }
           }
@@ -72,7 +72,47 @@ const App = (function () {
       });
     });
   }
-  return { uuidProject, createTodos, DisplayTodo, removeProjects, RemoveTodos };
+  function CompletedTodos() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      let id = checkbox.getAttribute("todoid");
+      const parent = document.querySelector(`.parent-todo[todoid='${id}']`);
+      const childrens = parent.querySelectorAll("div");
+      if (checkbox.checked) {
+        for (let project of MAINARRAY) {
+          for (let items of project.tasksarray) {
+            if (items.id === id) {
+              items.completed = true;
+            }
+          }
+        }
+        childrens.forEach((children) => {
+          children.classList.add('line')
+        });
+      } else {
+        for (let project of MAINARRAY) {
+          for (let items of project.tasksarray) {
+            if (items.id === id) {
+              items.completed = false;
+            }
+          }
+        }
+        childrens.forEach((children) => {
+          children.classList.remove('line')
+        });
+      }
+    });
+  }
+  //This function applies linethrough or none decoration
+  
+  return {
+    uuidProject,
+    createTodos,
+    DisplayTodo,
+    removeProjects,
+    RemoveTodos,
+    CompletedTodos,
+  };
 })();
 
 export { App };
