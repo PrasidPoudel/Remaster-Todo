@@ -2,10 +2,15 @@ import "../styles/style.css";
 //This is the main array which store the id project name and the project name todos
 export let MAINARRAY = [];
 if (window.localStorage) {
-  MAINARRAY = JSON.parse(localStorage.getItem("array"));
+  const storedarray=localStorage.getItem('array')
+  if(storedarray) {
+    MAINARRAY=JSON.parse(storedarray)
+  } else {
+    MAINARRAY=[]
+  }
 
   let arr = [];
-  if (MAINARRAY) {
+  if (MAINARRAY.length!=0) {
     for (let projects of MAINARRAY) {
       arr = arr.concat(projects.tasksarray);
     }
