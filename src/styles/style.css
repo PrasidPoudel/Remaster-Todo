@@ -9,7 +9,7 @@
 .options {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
 }
 .options div {
   display: flex;
@@ -17,7 +17,7 @@
 .options div div {
   align-self: center;
   font-family: "Roboto", sans-serif;
-  font-size: 1.125rem;
+  font-size: 1.1rem;
 }
 .cancel-button {
   background-color: rgb(206, 37, 37);
@@ -34,7 +34,7 @@
   width: fit-content;
 }
 .add-projects div img {
-  height: 25px;
+  height: 22px;
   width: 35px;
 }
 .add-projects > button {
@@ -78,7 +78,7 @@ img {
   padding: 8px;
 }
 img.inbox {
-  height: 40px;
+  height: 27px;
   width: 35px;
 }
 .project-item:hover {
@@ -86,7 +86,9 @@ img.inbox {
   background-color: #ccc;
 }
 .add-projects > div {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
+  font-family: 'Roboto';
+  font-weight: 400;
 }
 .project-item {
   display: flex;
@@ -188,10 +190,10 @@ body {
   display: flex;
   justify-content: center;
   background-color: #404040;
-  height: 75px;
+  height: 60px;
 }
 .appname div {
-  font-size: 3.5rem;
+  font-size: 2.3rem;
   font-weight: 600;
   font-family: "Bebas Neue";
   height: 150px;
@@ -264,9 +266,9 @@ img:hover {
   cursor: pointer;
 }
 .add-projects > div {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-family: "Roboto";
-  font-weight: 500;
+  font-weight: 400;
 }
 .taskAdd:hover {
   cursor: pointer;
