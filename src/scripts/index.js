@@ -132,7 +132,9 @@ addTodo.addEventListener("click", (event) => {
 
 const inb = document.querySelector(".home");
 inb.addEventListener("click", () => {
+  console.log('Hello')
   document.querySelector(".taskAdd").style.display = "none";
+  document.querySelector('.add-todo').innerHTML=''
   DOMProject.InboxTodo();
 });
 /**
@@ -143,3 +145,29 @@ function localstorage() {
   localStorage.setItem("array", JSON.stringify(MAINARRAY));
 }
 export { localstorage };
+import { differenceInDays } from 'date-fns';
+function deleteDate(days) {
+  const currentdate=new Date()
+  console.log(currentdate)
+  for(let item of MAINARRAY) {
+    for(let tasks of item.tasksarray) {
+      const date=new Date(tasks.duedate) 
+      console.log(date)
+      console.log(differenceInDays(date,currentdate))
+      if(differenceInDays(date,currentdate)<=days && differenceInDays(date,currentdate)>=0) {
+        DOMProject.createTodoForm(tasks)
+        console.log(tasks)
+      }
+    }
+  }
+}
+document.querySelector('.today').addEventListener('click',()=>{
+  document.querySelector('.taskAdd').style.display='none'
+  document.querySelector('.add-todo').innerHTML=''
+  deleteDate(1)
+})
+document.querySelector('.week').addEventListener('click',()=>{
+  document.querySelector('.taskAdd').style.display='none'
+  document.querySelector('.add-todo').innerHTML=''
+  deleteDate(7)
+})
