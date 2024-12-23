@@ -30,8 +30,9 @@ const App = (function () {
 
   //Display Todo function which take an array and create todos
   function DisplayTodo(arr) {
-    const todoContainer = document.querySelector(".add-todo");
     for (let items of arr) {
+      console.log('Item')
+      console.log(items)
       DOMProject.createTodoForm(items);
     }
   }
