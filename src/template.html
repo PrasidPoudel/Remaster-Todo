@@ -17,41 +17,68 @@
     <div class="todo-container">
         <div class="features">
             <div class="options">
-                <div class="home">
-                    <img src="img/inbox.svg" height="25px" width="30px">
-                    <div class="project-item inbox active">Inbox</div>
+                <div class="home project-item active" >
+                    <img src="img/inbox.svg" class="inbox" height="25px" width="30px">
+                    <div class="inbox">Inbox</div>
                 </div>
             </div>
-            <div class="projects-form" style="display: none;">
-                <form>
-                    <label for="project"></label>
-                    <input type="text" id="project-label" name="project" required>
-                    <br>
-                    <button class="cancel-button">Cancel</button>
-                    <button type="submit" class="add-button">Add</button>
-                </form>
-            </div>
+           
             <div class="projects-div">
-                <div class="projects">Projects+</div>
                 <div class="add-projects" id="projects-add"></div>
+                <div class="projects-form" style="display: none;">
+                    <form>
+                        <label for="project"></label>
+                        <input type="text" id="project-label" name="project" required minlength="3">
+                        <br>
+                        <div class="button-container">
+                        <button class="cancel-button">Cancel</button>
+                        <button type="submit" class="add-button">Add</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="projects">Projects <span><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></span></div>
             </div>
         </div>
         <div class="sidebar" id="side">
             <div class="name">Inbox</div>
             <div class="add-todo"></div>
+            <dialog class="edit">
+                <div class="editor">EDIT TODO</div>
+                <form class="form">
+                    <label for="title1">TaskName:</label>
+                    <input type="text" name="title1" id="title1" required minlength="3">
+                    <br>
+                    <label for="description1"></label>
+                    <input type="text" name="description1" id="description1">
+                    <br>
+                    <label for="duedate1">DueDate</label>
+                    <input type="date" name="duedate1" id="duedate1" required>
+                    <br>
+                    <label for="Priority1">Priority:</label>
+                    <select id="Priority1" name="Priority1" required>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                    <br>
+                    <button  class="cancel-edit">Cancel</button>
+                    <button type="submit" id="submit-edit">Save</button>
+                </form>
+                </dialog>
             <dialog class="dialog">
                 <form class="form-todo">
+                    <div class="div-form">Add Todo</div>
                     <label for="title">TaskName:</label>
-                    <input type="text" name="title" id="title" required minlength="3">
+                    <input type="text" name="title" id="title" required minlength="3" placeholder="title">
                     <br>
                     <label for="description"></label>
-                    <input type="text" name="description" id="description">
+                    <input type="text" name="description" id="description" placeholder="description(Optional)">
                     <br>
                     <label for="duedate">DueDate</label>
-                    <input type="date" name="duedate" id="duedate">
+                    <input type="date" name="duedate" id="duedate" placeholder="Duedate(Required)">
                     <br>
                     <label for="Priority">Priority:</label>
-                    <select id="Priority" name="Priority">
+                    <select id="Priority" name="Priority" required>
                         <option value="Low">Low</option>
                         <option value="Medium">Medium</option>
                         <option value="High">High</option>
@@ -59,10 +86,11 @@
                     <br>
                     <button  class="cancel-todo">Cancel</button>
                     <button type="submit" id="submit">Add+</button>
+                </form>
                 </dialog>
             </div>
             <div class="projects-display">
-                <div class="taskAdd">+</div>
+                <div class="taskAdd" style="display: none;">+</div>
             </div>
         </div>
     </div>
