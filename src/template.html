@@ -17,13 +17,23 @@
     <div class="todo-container">
         <div class="features">
             <div class="options">
+                <h2 class="Home">Home</h2>
                 <div class="home project-item active" >
                     <img src="img/inbox.svg" class="inbox" height="25px" width="30px">
                     <div class="inbox">Inbox</div>
                 </div>
+                <div class="project-item today" style="display: flex;">
+                    <img src="./img/today.svg" alt="">
+                    <div>Today</div>
+                </div>
+                <div class="project-item  week">
+                    <img src="./img/7.svg" alt="">
+                    <div>This Week</div>
+                </div>
             </div>
            
             <div class="projects-div">
+                <h2 class="projectName">Projects</h2>
                 <div class="add-projects" id="projects-add"></div>
                 <div class="projects-form" style="display: none;">
                     <form>
@@ -42,6 +52,7 @@
         <div class="sidebar" id="side">
             <div class="name">Inbox</div>
             <div class="add-todo"></div>
+             <div class="taskAdd" style="display: none;">+</div>
             <dialog class="edit">
                 <div class="editor">EDIT TODO</div>
                 <form class="form">
@@ -90,7 +101,7 @@
                 </dialog>
             </div>
             <div class="projects-display">
-                <div class="taskAdd" style="display: none;">+</div>
+               
             </div>
         </div>
     </div>
