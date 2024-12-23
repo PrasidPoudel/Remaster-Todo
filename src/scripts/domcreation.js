@@ -134,11 +134,11 @@ const DOMProject = (function () {
   }
   function InboxTodo() {
     let arr = [];
-    const todoContainer = document.querySelector(".add-todo");
-    todoContainer.innerHTML = "";
     for (let projects of MAINARRAY) {
       arr = arr.concat(projects.tasksarray);
     }
+    console.log('arr')
+    console.log(arr)
     App.DisplayTodo(arr);
   }
 
